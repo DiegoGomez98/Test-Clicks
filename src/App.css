@@ -1,38 +1,83 @@
-.App {
+:root {
+  --azulPrimario: #0081C9;
+  --azulSecundario: #5BC0F8;
+  --azulTerciario: #86E5FF;
+  --amariollo: #FFC93C;
+}
+
+html {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: rgb(91,192,248);
+  background: radial-gradient(circle, rgba(91,192,248,1) 0%, rgba(134,229,255,1) 79%, rgba(0,129,201,1) 100%);
+}
+
+p {
+  margin: 0;
+}
+
+.header-section {
+  display: grid;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.botones {
+  width: 100%;
+  height: 20rem;
+  display: grid;
+  grid-template-areas:
+    "contador temporizador botonReiniciar"
+    "botonClick botonClick botonClick";
+    grid-gap: 2rem;
+}
+
+.header_img {
+  width: 16rem;
+}
+
+/* .contador button {
+  width: 25rem;
+  background-color: transparent;
+  border: none;
+  font-family: 'Shadows Into Light', cursive;
+} */
+
+.contenedor-bienvenido {
+  margin: 0 0 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-bienvenido p {
+  font-size: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.contenedor-bienvenido p:nth-child(1), .contenedor-segundos_text {
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contenedor-segundos {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 12rem;
 }
 
-.App-link {
-  color: #61dafb;
+.contenedor-segundos_text {
+  font-size: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media only screen and (max-width: 768px) {
+  .botones {
+    margin: 2rem;
   }
 }
