@@ -1,9 +1,9 @@
 import './App.css';
+import Temporizador from './componentes/Temporizador';
+import Segundos from './componentes/Segundos';
 import logoContadordeClicks from './assets/img/logo.png'
 import Boton from './componentes/Boton';
 import Contador from './componentes/Contador';
-import Temporizador from './componentes/Temporizador';
-import Segundos from './componentes/Segundos';
 import { useState } from 'react';
 // import { click } from '@testing-library/user-event/dist/click';
 // HOOKS --> son funciones especiales que permiten utilizar caracteristicas poderosas con componentes funcionales
@@ -27,11 +27,6 @@ function App() {
     setNumClicks(0);
   }
 
-  const clicks = () => {
-  setNumClicks(numClicks + 1);
-  console.log('click');
-  }
-
   let iniciarContador = (valor) => {
     reiniciar();
     // let contContador = document.querySelector('#botonClick')
@@ -39,17 +34,25 @@ function App() {
     let intervalo = setInterval(() => {
       setNumSegundos(Math.floor(valor--));
       document.getElementById("temporizador").textContent = valor;
-      // if (valor > 0) {
-      //   contContador.addEventListener('click', clicks);
-      // }
       if (valor === -1) {
         setNumSegundos(0);
       // document.getElementById('temporizador').textContent = valor;
       // Detener el intervalo cuando el contador de segundos llega a cero
       clearInterval(intervalo);
+      resultado();
       // contContador.removeEventListener('click', this.clicks);
     }
   }, 1000);
+}
+
+     function resultado() {
+    alert(`Juego terminado. Cantidad de clicks: ${numClicks}`);
+    // Reiniciar la cantidad de clicks a 0
+  }
+
+  const clicks = () => {
+  setNumClicks(numClicks + 1);
+  console.log('click');
   }
 
   return (
